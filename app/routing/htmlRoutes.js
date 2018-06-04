@@ -10,21 +10,20 @@ module.exports = function(app) {
   // ---------------------------------------------------------------------------
 
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/home.html"));
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
-  // A default, catch-all route that leads to home.html which displays the home page.
-  // If no matching route is found default to home:
 
-  app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/home.html"));
-  });
+
+ 
 
 // A GET Route to /survey which should display the survey page.
   app.get("/survey", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/survey.html"));
   });
 
+  // A default, catch-all route that leads to home.html which displays the home page.
+  // If no matching route is found default to home:
   app.get("*", function(req, res, next) {
     if(req.url.indexOf('/api') == 0) return next();
     if(req.url.indexOf('/assets') == 0) return next();

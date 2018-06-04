@@ -44,15 +44,15 @@ module.exports = function(app) {
 
 //INACCURATE RN, example:   ----------------------
 
-    if (friendsData.length < 5) {
-      friendsData.push(req.body);
-      res.json(true);
-    }
-    else {
-      friendsData.push(req.body);
-      res.json(false);
-    }
-  });
+    // if (friendsData.length < 5) {
+    //   friendsData.push(req.body);
+    //   res.json(true);
+    // }
+    // else {
+    //   friendsData.push(req.body);
+    //   res.json(false);
+    // }
+
 // -------
 
 
