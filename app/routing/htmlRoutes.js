@@ -1,5 +1,6 @@
 
 // var path = require("path");
+var path = require("path");
 
 // ROUTING: 
 module.exports = function(app) {
@@ -24,5 +25,17 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/survey.html"));
   });
 
-
+  app.get("*", function(req, res, next) {
+    if(req.url.indexOf('/api') == 0) return next();
+    if(req.url.indexOf('/assets') == 0) return next();
+    if(req.url.indexOf('/css') == 0) return next();
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
 };
+
+
+
+
+
+
+
