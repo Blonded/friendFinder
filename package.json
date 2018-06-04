@@ -1,0 +1,28 @@
+{
+  "name": "Friend-Finder",
+  "version": "1.0.0",
+  "description": "Friend-Finder is a full-stack compatibility app, run through Express.js and Heroku for display.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blonded/Friend-Finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blonded/Friend-Finder/issues"
+  },
+  "homepage": "https://github.com/Blonded/Friend-Finder#readme"
+}
