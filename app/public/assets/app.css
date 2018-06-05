@@ -1,10 +1,36 @@
+html, body {
+  background-color: red;
+}
+
+body {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 .jumbotron-fluid{
   margin-top: 40px;
   color: red;
   font-family: 'Cinzel', serif;
 }
 
-#surveyQuestions {
-  text-align: right;
+.container-survey{
   font-size: 17px;
+  font-family: 'Cinzel', serif;
+}
+
+.card{
+  margin: 20px;
+}
+
+#surveyQuestions {
+  text-align: left;
+  font-size: 17px;
+  font-family: 'Cinzel', serif;
+}
+
+.container-survey{
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: white;
+  color: red;
 }
