@@ -24,18 +24,23 @@ module.exports = function(app) {
     res.json(friendsData);
   });
 
-app.post("api/friends", function(req, res){
+app.post("/api/friends", function(req, res){
+  console.log('this is our new friend to save!!!', req.body);
 
-  // console.log(req.body); 
-  var newestFriend = req.body; // person that just filled in surevey that is looking for a match
-  var bestMatch; 
+  // console.log(req.body);
+  var newestFriend = req.body;
+  friendsData.push(newestFriend); // person that just filled in surevey that is looking for a match
+  var bestMatch;
+
+
+  
   // do logic to compare new friend again all friends in friend data array
   // find match
 
   // then add new fried to friend data array after a match is made
   // friendsData.push(newestfriend);
   // res.json the matched friend back
-  res.json(bestMatch);
+  res.json(friendsData);
 
 
 
