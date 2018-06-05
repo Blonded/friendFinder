@@ -18,7 +18,7 @@ This package is downloaded and installed independently on your computer.
 It will make it so you do not have to consistently rerun your terminal every time you make a change.
 * nodemon
 
-![Image](Image url here)
+![Preview](http://i64.tinypic.com/hs2n4h.png)
 
 ## 🛠️ Built With
 
