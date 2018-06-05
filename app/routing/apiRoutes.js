@@ -6,7 +6,6 @@
 // These data sources hold arrays of information on friendsData
 // ===============================================================================
 
-// A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.
 
 
 var friendsData = require("../data/friends");
@@ -20,20 +19,23 @@ module.exports = function(app) {
   // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
 
+  
+  // A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.
+
   app.get("/api/friends", function(req, res) {
     res.json(friendsData);
   });
 
 app.post("/api/friends", function(req, res){
-  console.log('this is our new friend to save!!!', req.body);
+  console.log('this is our new friend to save!', req.body);
 
   // console.log(req.body);
   var newestFriend = req.body;
-  friendsData.push(newestFriend); // person that just filled in surevey that is looking for a match
+  friendsData.push(newestFriend); // person that just filled in survey that is looking for a match
   var bestMatch;
 
 
-  
+
   // do logic to compare new friend again all friends in friend data array
   // find match
 

@@ -1,17 +1,24 @@
 $(document).ready(function(){
-  console.log('we are all linked up!!!');
+  console.log('connected and linked');
 
 
 
 $('#submitbtn').on('click', function(){
-  console.log('we got clicked!!!');
+  console.log('we got clicked!');
   var surveyResults = {
-    name: $('#nameINput').val(),
+    name: $('#nameInput').val(),
     photo: $('#photoUrl').val(),
     scores: [
       parseInt($('#q1 option:selected').val()),
       parseInt($('#q2 option:selected').val()),
-      parseInt($('#q3 option:selected').val())
+      parseInt($('#q3 option:selected').val()),
+      parseInt($('#q4 option:selected').val()),
+      parseInt($('#q5 option:selected').val()),
+      parseInt($('#q6 option:selected').val()),
+      parseInt($('#q7 option:selected').val()),
+      parseInt($('#q8 option:selected').val()),
+      parseInt($('#q9 option:selected').val()),
+      parseInt($('#q10 option:selected').val())
     ]
 
   }
@@ -26,8 +33,5 @@ $('#submitbtn').on('click', function(){
     console.log('this is what we got back from the backend!!', responseFromBackend)
   })
   //ajax
-})
-
-
-
+  })
 })
