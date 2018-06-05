@@ -12,6 +12,10 @@ In order for the app to function properly, please install the following packages
 * express
 * body-parser
 * path
+
+- Optional -
+This package is downloaded and installed independently on your computer.
+It will make it so you do not have to consistently rerun your terminal every time you make a change.
 * nodemon
 
 ![Image](Image url here)
@@ -43,3 +47,6 @@ COMING SOON
 * **Lena Martinson** - [Blonded](https://github.com/Blonded)
 
 ## Resources
+* **Bootstrap** - [Bootstrap](https://getbootstrap.com/)
+* **Google Fonts** - [Google Fonts](https://fonts.google.com/)
+* **Heroku** - [Heroku](https://heroku.com)
