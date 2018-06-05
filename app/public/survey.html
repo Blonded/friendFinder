@@ -10,20 +10,15 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/app.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-    <!-- Link to js: -->
-    <!-- <script src="main.js"></script> -->
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-  <script src="./survey.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="./survey.js"></script>
 
 </head>
 <body>
@@ -34,20 +29,16 @@
 <div class= "container-survey">
   <h1> Friend:Finder Survey </h1>
   <hr>
-    <div class ="name-form">
-      <h3> Your name here: (Required)</h3>
-        <!-- name form goes here -->
-      <input type="text" id="nameInput" class="form-control" required="">
-      </input>
-    </div>
 
-    <div class="photo">
-      <h3> Link photo to image: </h3>
-      <!-- link form to photo here -->
-      <input type="text" id="photoUrl" class="form-control" required="">
-      </input>
+  <!-- input forms -->
+  <!-- name, img url -->
+  <label class='active' for="name">Your Name: (required)
+  </label>
+  <input id="name" type="text" class="validate" required>
+  <br>
+  <label class='active' for="name">Link to Photo Image: (required)</label>
+    <input id="photo" type="text" class="validate" required>
 
-    </div>
 
 <hr>
     <div id="surveyQuestions">
@@ -175,7 +166,7 @@ Submit!
 </button> -->
 <br>
 <div class="text-center">
-    <button type="submit" class="btn btn-danger btn-md" id="submitbtn">
+    <button type="submit" class="btn btn-danger btn-md" id="submitBtn">
     <span class="ok"></span> Submit</button>
 </div>
 
@@ -194,6 +185,101 @@ Submit!
 
 
 
+<!-- Modal -->
+ <div id="results-modal" class="modal fade" role="dialog">
+   <div class="modal-dialog">
+
+
+
+
+<!-- CANT GET MODAL TO WORK -->
+
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h2 class="modal-title"><strong>Matched!</strong></h2>
+       </div>
+       <div class="modal-body">
+         <h2 id="match-name"></h2>
+         <img id="match-img" src="" alt="">
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+
+   </div>
+ </div>
+
+<!-- Grabs information and sends it to server -->
+<script type="text/javascript">
+$(document).ready(function() {
+   $("#submitBtn").on("click", function() {
+       //form validation
+       function validateForm() {
+           var isValid = true;
+           $('.validate').each(function() {
+               if ($(this).val() === ''){
+                   isValid = false;
+               }
+           });
+           $('.chosen-select').each(function() {
+               if ($(this).val() === ""){
+                   isValid = false;
+               }
+           });
+           return isValid;
+       }
+       //if everything is filled
+       if (validateForm() == true) {
+           //creates a new friend from the values submitted
+           var newFriend = {
+               name: $('#name').val().trim(),
+               photoUrl: $('#photo').val().trim(),
+               scores: [
+                   $('#q1').val(),
+                   $('#q2').val(),
+                   $('#q3').val(),
+                   $('#q4').val(),
+                   $('#q5').val(),
+                   $('#q6').val(),
+                   $('#q7').val(),
+                   $('#q8').val(),
+                   $('#q9').val(),
+                   $('#q10').val(),
+               ]
+           };
+           //Grabs current URL of website
+           var currentURL = window.location.origin;
+           //AJAX posts the data to friends API.
+           $.post(currentURL + "/api/friends", newFriend, function(data) {
+               //Grab the result from the AJAX post so that the best match's name and photo are displayed.
+               $("#matchName").text(data.name);
+               $("#matchPic").attr("src", data.photoUrl);
+           });
+           // Show the modal with the best match
+               $('.modal').modal();
+           //clear form after submission
+           $('#name').val("");
+           $('#photo').val("");
+           $('#q1').val("");
+           $('#q2').val("");
+           $('#q3').val("");
+           $('#q4').val("");
+           $('#q5').val("");
+           $('#q6').val("");
+           $('#q7').val("");
+           $('#q8').val("");
+           $('#q9').val("");
+           $('#q10').val("");
+       } else {
+           alert("Please fill out ALL fields before submitting survey!")
+       }
+       // return false;
+   });
+});
+</script>
 
 </body>
 </html>
