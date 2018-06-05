@@ -1,3 +1,66 @@
+
+var friendsData = [
+  {
+    "name": "John",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0891/8314/products/Y_U_NO_Die_Cut_D_4fedca0789bff_large.jpeg?v=1459067202",
+    "scores": [1,2,3,4,5,1,2,3,4,5]
+},
+  {
+    "name": "Josie",
+    "imageUrl": "http://www.ragefaces.memesoftware.com/faces/large/angry-no-l.png",
+    "scores": [1,2,3,4,5,1,2,3,4,5]
+},
+  {
+    "name": "Jacob",
+    "imageUrl": "https://fthmb.tqn.com/hKy29JM3NESuE84ROIv3fmFbR_k=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/foreveralone-58072dc65f9b5805c23977d3.png",
+    "scores": [1,2,3,4,5,1,2,3,4,5]
+},
+  {
+    "name": "Jannine",
+    "imageUrl": "https://s-media-cache-ak0.pinimg.com/originals/21/2b/93/212b93cc99bf19c1a87d14bf4335caec.jpg",
+    "scores": [1,2,3,4,5,1,2,3,4,5]
+},
+  {
+    "name": "Jeronimo",
+    "imageUrl": "https://abrilexame.files.wordpress.com/2016/09/size_960_16_9_20151020-25144-9f3b5r.jpg?quality=70&strip=info&w=920",
+    "scores": [1,2,3,4,5,1,2,3,4,5]
+},
+  {
+    "name": "Jeffrey",
+    "imageUrl": "https://d6ce0no7ktiq.cloudfront.net/images/stickers/471.png",
+    "scores": [1,2,3,4,5,1,2,3,4,5]
+},
+  {
+    "name": "Joe",
+    "imageUrl": "https://vignette.wikia.nocookie.net/wikiaglobal/images/d/d5/Wikia-Visualization-Main%2Cmeme.png/revision/latest?cb=20130802195400",
+    "scores": [1,2,3,4,5,1,2,3,4,5]
+},
+  {
+  "name": "Jimmy",
+  "imageUrl": "http://wallpaperen.com/wp-content/uploads/2017/12/new-sad-troll-face-meme-okay-meme-face-sad-troll-face-meme.jpg",
+  "scores": [1,2,3,4,5,1,2,3,4,5]
+},
+  {
+  "name": "Jay",
+  "imageUrl": "https://vignette.wikia.nocookie.net/nerf/images/e/ee/Funny-Meme-Faces-17.jpg/revision/latest?cb=20161012013913",
+  "scores": [1,2,3,4,5,1,2,3,4,5]
+},
+  {
+  "name": "Jasmine",
+  "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReJCN9nHbkcx4TBhPbptfLh_eAf9XLj7yoC-QZf5XJ-8oKA5lW",
+  "scores": [1,2,3,4,5,1,2,3,4,5]
+}
+  ];
+
+
+
+
+// Note how we export the array. This makes it accessible to other files using require.
+module.exports = friendsData;
+
+
+
+
 // You should save your application's data inside of app/data/friends.js as an array of objects.
 //Each of these objects should roughly follow the format below.
 //
@@ -45,25 +108,3 @@
 // Initially we just set it equal to a "dummy" customer.
 // But you could have it be an empty array as well.
 // ===============================================================================
-
-var friendsData = [
-  {
-   "name":"Josie",
-   "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-   "scores":[
-       5,
-       1,
-       4,
-       4,
-       5,
-       1,
-       2,
-       5,
-       4,
-       1
-     ]
- }
-];
-
-// Note how we export the array. This makes it accessible to other files using require.
-module.exports = friendsData;

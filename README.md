@@ -13,7 +13,7 @@ In order for the app to function properly, please install the following packages
 * body-parser
 * path
 
-- Optional -
+-- Optional --
 This package is downloaded and installed independently on your computer.
 It will make it so you do not have to consistently rerun your terminal every time you make a change.
 * nodemon
