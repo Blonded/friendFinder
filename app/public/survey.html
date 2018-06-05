@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="./survey.js"></script>
 
 </head>
@@ -213,7 +214,7 @@ Submit!
  </div>
 
 <!-- Grabs information and sends it to server -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function() {
    $("#submitBtn").on("click", function() {
        //form validation
@@ -275,6 +276,78 @@ $(document).ready(function() {
            $('#q10').val("");
        } else {
            alert("Please fill out ALL fields before submitting survey!")
+       }
+       // return false;
+   });
+});
+</script> -->
+
+
+<script>
+$(document).ready(function() {
+   $("#submitBtn").on("click", function() {
+       //form validation
+       function validateForm() {
+           var isValid = true;
+           $('.validate').each(function() {
+               if ($(this).val() === ''){
+                   isValid = false;
+               }
+           });
+           $('.chosen-select').each(function() {
+               if ($(this).val() === ""){
+                   isValid = false;
+               }
+           });
+           return isValid;
+       }
+       //if everything is filled
+       if (validateForm() === true) {
+           //creates a new friend from the values submitted
+           var newFriend = {
+               name: $('#name').val().trim(),
+               photoUrl: $('#photo').val().trim(),
+               scores: [
+                   $('#q1').val(),
+                   $('#q2').val(),
+                   $('#q3').val(),
+                   $('#q4').val(),
+                   $('#q5').val(),
+                   $('#q6').val(),
+                   $('#q7').val(),
+                   $('#q8').val(),
+                   $('#q9').val(),
+                   $('#q10').val(),
+               ]
+           };
+
+           console.log(newFriend);
+           //AJAX posts the data to friends API.
+           $.post("/api/friends", newFriend, function(data) {
+               //Grab the result from the AJAX post so that the best match's name and photo are displayed.
+               $("#matchName").text(data.name);
+               $("#matchPic").attr("src", data.photoUrl);
+               // Show the modal with the best match
+               $('#results-modal').modal('show');
+               //clear form after submission
+               $('#name').val("");
+               $('#photo').val("");
+               $('#q1').val("");
+               $('#q2').val("");
+               $('#q3').val("");
+               $('#q4').val("");
+               $('#q5').val("");
+               $('#q6').val("");
+               $('#q7').val("");
+               $('#q8').val("");
+               $('#q9').val("");
+               $('#q10').val("");
+           });
+
+
+       } else {
+         console.log("err")
+          // alert("Please fill out ALL fields before submitting survey!")
        }
        // return false;
    });

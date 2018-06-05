@@ -19,7 +19,7 @@ module.exports = function(app) {
   // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
 
-  
+
   // A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.
 
   app.get("/api/friends", function(req, res) {
@@ -30,9 +30,9 @@ app.post("/api/friends", function(req, res){
   console.log('this is our new friend to save!', req.body);
 
   // console.log(req.body);
-  var newestFriend = req.body;
-  friendsData.push(newestFriend); // person that just filled in survey that is looking for a match
-  var bestMatch;
+  // var newestFriend = req.body;
+  // friendsData.push(newestFriend); // person that just filled in survey that is looking for a match
+  // var bestMatch;
 
 
 
@@ -42,7 +42,7 @@ app.post("/api/friends", function(req, res){
   // then add new fried to friend data array after a match is made
   // friendsData.push(newestfriend);
   // res.json the matched friend back
-  res.json(friendsData);
+  res.json({name: "amber", photoUrl: "https://assets.time.com/assets/desktop-loop-poster.jpg"});
 
 
 
