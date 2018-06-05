@@ -36,14 +36,16 @@
   <hr>
     <div class ="name-form">
       <h3> Your name here: (Required)</h3>
-      <input id="nameInput"></input>
-      <!-- name form goes here -->
+        <!-- name form goes here -->
+      <input type="text" id="nameInput" class="form-control" required="">
+      </input>
     </div>
+
     <div class="photo">
       <h3> Link photo to image: </h3>
-      <input id="photoUrl"></input>
       <!-- link form to photo here -->
-      <!-- http://cdn2-www.dogtime.com/assets/uploads/2010/12/puppies.jpg -->
+      <input type="text" id="photoUrl" class="form-control" required="">
+      </input>
 
     </div>
 
@@ -167,9 +169,15 @@
     </div>
 </div>
  <!-- ends div container ^ -->
-<button id = 'submitbtn'>
+
+<!-- <button id = 'submitbtn'>
 Submit!
-</button>
+</button> -->
+<br>
+<div class="text-center">
+    <button type="submit" class="btn btn-danger btn-md" id="submitbtn">
+    <span class="ok"></span> Submit</button>
+</div>
 
 </div>
 </div>
