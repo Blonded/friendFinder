@@ -1,25 +1,21 @@
 
 
 
-var friendsData = require("../data/friends");
+var friendList = require("../data/friends.js");
 
-
+// API GET Requests
+// handles when users "visit" a page.
+// In each of the below cases when a user visits a link
+// (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
+// ---------------------------------------------------------------------------
 // ROUTING:
 module.exports = function(app) {
-  // API GET Requests
-  // handles when users "visit" a page.
-  // In each of the below cases when a user visits a link
-  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
-  // ---------------------------------------------------------------------------
-
-
   // A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.
-
 app.get("/api/friends", function(req, res) {
-    res.json(friendsData);
+    res.json(friendList);
   });
 
-app.post("/api/friends", function(req, res){
+app.post("/api/friends", function(req, res) {
   //grabs the new friend's scores to compare with friends in friendList array
    var newFriendScores = req.body.scores;
    var scoresArray = [];
@@ -39,7 +35,7 @@ app.post("/api/friends", function(req, res){
    }
 
    //after all friends are compared, find best match
-   for(var i=0; i<scoresArray.length; i++){
+   for(var i = 0; i < scoresArray.length; i++){
      if(scoresArray[i] <= scoresArray[bestMatch]){
        bestMatch = i;
      }
@@ -55,9 +51,9 @@ app.post("/api/friends", function(req, res){
 };
 
 
-  app.post("/api/clear", function() {
-    // Empty out the arrays of data
-    friendsData = [];
-
-    console.log(friendsData);
-  });
+  // app.post("/api/clear", function() {
+  //   // Empty out the arrays of data
+  //   friendsData = [];
+  //
+  //   console.log(friendsData);
+  // });
