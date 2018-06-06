@@ -1,12 +1,5 @@
 
 
-// ===============================================================================
-// LOAD DATA
-// We are linking our routes to a series of "data" sources.
-// These data sources hold arrays of information on friendsData
-// ===============================================================================
-
-
 
 var friendsData = require("../data/friends");
 
@@ -22,64 +15,45 @@ module.exports = function(app) {
 
   // A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.
 
-  app.get("/api/friends", function(req, res) {
+app.get("/api/friends", function(req, res) {
     res.json(friendsData);
   });
 
 app.post("/api/friends", function(req, res){
-  console.log('this is our new friend to save!', req.body);
+  //grabs the new friend's scores to compare with friends in friendList array
+   var newFriendScores = req.body.scores;
+   var scoresArray = [];
+   var friendCount = 0;
+   var bestMatch = 0;
 
-  // console.log(req.body);
-  // var newestFriend = req.body;
-  // friendsData.push(newestFriend); // person that just filled in survey that is looking for a match
-  // var bestMatch;
+   //runs through all current friends in list
+   for(var i = 0; i < friendList.length; i++){
+     var scoresDiff = 0;
+     //run through scores to compare friends
+     for(var x = 0; x < newFriendScores.length; x++){
+       scoresDiff += (Math.abs(parseInt(friendList[i].scores[x]) - parseInt(newFriendScores[x])));
+     }
 
+     //push results into scoresArray
+     scoresArray.push(scoresDiff);
+   }
 
+   //after all friends are compared, find best match
+   for(var i=0; i<scoresArray.length; i++){
+     if(scoresArray[i] <= scoresArray[bestMatch]){
+       bestMatch = i;
+     }
+   }
 
-  // do logic to compare new friend again all friends in friend data array
-  // find match
+   //return bestMatch data
+   var bff = friendList[bestMatch];
+   res.json(bff);
 
-  // then add new fried to friend data array after a match is made
-  // friendsData.push(newestfriend);
-  // res.json the matched friend back
-  res.json({name: "amber", photoUrl: "https://assets.time.com/assets/desktop-loop-poster.jpg"});
+   //pushes new submission into the friendsList array
+   friendList.push(req.body);
+ });
+};
 
-
-
-});
-  // API POST Requests
-  // Below code handles when a user submits a form and thus submits data to the server.
-  // In each of the below cases, when a user submits form data (a JSON object)
-  // ...the JSON is pushed to the appropriate JavaScript array
-  // (ex. User fills out a reservation request... this data is then sent to the server...
-  // Then the server saves the data to the tableData array)
-  // ---------------------------------------------------------------------------
-
-  // A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
-
-
-  // app.post("/api/friends", function(req, res) {
-  //   // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-  //   // It will do this by sending out the value "true" have a table
-  //   // req.body is available since we're using the body-parser middleware
-
-
-//INACCURATE RN, example:   ----------------------
-
-    // if (friendsData.length < 5) {
-    //   friendsData.push(req.body);
-    //   res.json(true);
-    // }
-    // else {
-    //   friendsData.push(req.body);
-    //   res.json(false);
-    // }
-
-// -------
-
-
-
-  // this below code clears out the table while working with the functionality.
 
   app.post("/api/clear", function() {
     // Empty out the arrays of data
@@ -87,4 +61,3 @@ app.post("/api/friends", function(req, res){
 
     console.log(friendsData);
   });
-};
