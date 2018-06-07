@@ -14,15 +14,20 @@
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 
     <!-- BootStrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+   -->
     <!-- Tether -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="path/to/dist/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="./survey.js"></script>
 
 </head>
@@ -189,11 +194,11 @@
 
 
 <!-- Modal -->
- <div id="results-modal" class="modal fade" role="dialog">
+<div id="results-modal" class="modal fade" role="dialog">
    <div class="modal-dialog">
 
      <!-- Modal content-->
-     <div class="modal-content">
+   <div class="modal-content">
        <div class="modal-header">
          <button type="button" class="close" data-dismiss="modal">&times;</button>
          <h2 class="modal-title"><strong>Matched!</strong></h2>
@@ -207,82 +212,15 @@
        </div>
      </div>
 
-   </div>
- </div>
+   <!-- </div>
+ </div> -->
 
 
-<script>
-// <!-- Grabs information and sends it to server -->
-// <!-- <script type="text/javascript">
 
-$(document).ready(function() {
-   $("#submitBtn").on("click", function() {
-       //form validation
-       function validateForm() {
-           var isValid = true;
-           $('.validate').each(function() {
-               if ($(this).val() === ''){
-                   isValid = false;
-               }
-           });
-           $('.chosen-select').each(function() {
-               if ($(this).val() === ""){
-                   isValid = false;
-               }
-           });
-           return isValid;
-       }
-       //if everything is filled
-       if (validateForm() == true) {
-           //creates a new friend from the values submitted
-           var newFriend = {
-               name: $('#name').val().trim(),
-               photoUrl: $('#photo').val().trim(),
-               scores: [
-                   $('#q1').val(),
-                   $('#q2').val(),
-                   $('#q3').val(),
-                   $('#q4').val(),
-                   $('#q5').val(),
-                   $('#q6').val(),
-                   $('#q7').val(),
-                   $('#q8').val(),
-                   $('#q9').val(),
-                   $('#q10').val(),
-               ]
-           };
-           //Grabs current URL of website
-           var currentURL = window.location.origin;
-           //AJAX posts the data to friends API.
-           $.post(currentURL + "/api/friends", newFriend, function(data) {
-               //Grab the result from the AJAX post so that the best match's name and photo are displayed.
-               $("#matchName").text(data.name);
-               $("#matchPic").attr("src", data.photoUrl);
-           });
-           // Show the modal with the best match
-               $('.modal').modal();
-           //clear form after submission
-           $('#name').val("");
-           $('#photo').val("");
-           $('#q1').val("");
-           $('#q2').val("");
-           $('#q3').val("");
-           $('#q4').val("");
-           $('#q5').val("");
-           $('#q6').val("");
-           $('#q7').val("");
-           $('#q8').val("");
-           $('#q9').val("");
-           $('#q10').val("");
-       } else {
-           alert("Please fill out ALL fields before submitting survey!")
-       }
-       // return false;
-   });
-});
 
 
 <script>
+
 $(document).ready(function() {
    $("#submitBtn").on("click", function() {
        //form validation
@@ -327,7 +265,7 @@ $(document).ready(function() {
                $("#matchName").text(data.name);
                $("#matchPic").attr("src", data.photoUrl);
                // Show the modal with the best match
-               $('#results-modal').modal('show');
+
                //clear form after submission
                $('#name').val("");
                $('#photo').val("");
@@ -341,6 +279,9 @@ $(document).ready(function() {
                $('#q8').val("");
                $('#q9').val("");
                $('#q10').val("");
+
+               $('#results-modal').modal('show');
+               
            });
 
 
