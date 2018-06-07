@@ -20,7 +20,9 @@ It will make it so you do not have to consistently rerun your terminal every tim
 * nodemon
 
 ![Preview](http://i64.tinypic.com/hs2n4h.png)
-[Take the quiz here] (https://enigmatic-sands-67816.herokuapp.com/)
+
+## Take the quiz here:
+(https://enigmatic-sands-67816.herokuapp.com/)
 
 ## 🛠️ Built With
 
