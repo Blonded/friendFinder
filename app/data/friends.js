@@ -1,7 +1,7 @@
 var friendList = [
   {
     name: "LENA",
-    profilePic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReJCN9nHbkcx4TBhPbptfLh_eAf9XLj7yoC-QZf5XJ-8oKA5lW",
+    photoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReJCN9nHbkcx4TBhPbptfLh_eAf9XLj7yoC-QZf5XJ-8oKA5lW",
     scores: [
       "4",
       "5",
